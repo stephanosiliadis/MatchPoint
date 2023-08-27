@@ -1,0 +1,162 @@
+.match, .stats-circle {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #212121;
+  font-weight: bold;
+}
+
+body {
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+nav {
+  background-color: #4dd0e1;
+}
+
+footer {
+  background-color: #4dd0e1;
+  width: 100%;
+  position: relative;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+footer p {
+  color: #ffc400;
+}
+footer a {
+  color: #ff5722;
+}
+footer a:hover {
+  color: #ffc400;
+  text-decoration: none;
+}
+
+hr {
+  border: solid 2px #4dd0e1;
+  width: 70%;
+  background-color: #4dd0e1;
+  border-radius: 20%;
+}
+
+button {
+  margin: 10px;
+}
+
+.contents {
+  font-size: 22px;
+  padding: 0 20px;
+}
+
+.brand .navbar-brand {
+  color: #ff5722;
+}
+.brand .navbar-brand:hover {
+  color: #ffc400;
+}
+
+.stats-circle {
+  padding: 20px;
+}
+.stats-circle .circle {
+  --w: 150px;
+  width: var(--w);
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+  margin: 5px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.stats-circle .circle:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 0;
+  background: conic-gradient(var(--c) calc(var(--p) * 1%), #4dd0e1 0);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--b)), #000 calc(100% - var(--b)));
+  mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--b)), #000 calc(100% - var(--b)));
+}
+.stats-circle p {
+  display: inline;
+  padding: 5px;
+}
+.stats-circle .stats-shower {
+  color: black;
+}
+.stats-circle .wins {
+  color: #ff5722;
+}
+.stats-circle .losses {
+  color: #4dd0e1;
+}
+
+caption {
+  display: none;
+  text-align: center;
+  color: white;
+  height: 140px;
+}
+
+table {
+  border: 3px solid #212121;
+  border-radius: 12px;
+  background-color: #4dd0e1;
+  margin: 10px;
+}
+
+tr,
+td {
+  text-align: center;
+  border: 3px solid #212121;
+  border-radius: 12px;
+  background-color: #4dd0e1;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.match {
+  position: relative;
+  padding: 20px;
+}
+.match table {
+  border-collapse: collapse;
+  transition: width 0.5s;
+  padding: 20px;
+  display: block;
+  box-shadow: 5px 5px 5px #ff5722;
+  box-shadow: -5px 5px 5px #ff5722;
+}
+.match .user {
+  color: #212121;
+}
+.match .opponent {
+  color: #ffc400;
+  font-weight: bold;
+}
+.match #winner {
+  color: #ff5722;
+  background-color: #ffc400;
+  border-radius: 0;
+}
+.match .update {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.match .stats {
+  color: #212121;
+}
+.match .stats .info td {
+  color: white;
+}/*# sourceMappingURL=styles.css.map */

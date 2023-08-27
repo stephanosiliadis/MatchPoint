@@ -1,0 +1,59 @@
+{% extends 'core/base.html' %}
+{% load my_filters %}
+
+
+{% block title %}
+    | Home
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row-12">
+            {% for match in matches %}
+            <div class="match">
+                <div class="table-match">
+                <table border="1" class="m-3">
+                    <thead>
+                        <tr class="info">
+                            <td>Players</td>
+                            {% for i in match.number_of_sets|make_list %}
+                                <td>Set {{ forloop.counter }}</td>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for player in match.players.all %}
+                            {% if player == match.players.first %}
+                                <tr class="player">
+                                    <td>{{ player }}</td>
+                                    {% for set in match.set_set.all %}
+                                        {% if player == match.players.first %}
+                                            <td>{{ set.player1_games }}</td>
+                                        {% else %}
+                                            <td>{{ set.player2_games }}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                            {% else %}
+                                <tr class="opponent">
+                                    <td>{{ player }}</td>
+                                    {% for set in match.set_set.all %}
+                                        {% if player == match.players.first %}
+                                            <td>{{ set.player1_games }}</td>
+                                        {% else %}
+                                            <td>{{ set.player2_games }}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+                <hr />
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

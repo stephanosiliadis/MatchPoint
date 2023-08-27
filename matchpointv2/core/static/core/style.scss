@@ -1,0 +1,228 @@
+//Definition of color variables
+$base_color: #212121;
+$secondary_color: #4dd0e1;
+$first_accent_color: #ffc400;
+$second_accent_color: #ff5722;
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+//Definition of font variables
+$base_font: 22px;
+
+//Definition of the border
+$base_border: 3px solid #212121;
+
+//Definition of display rules
+%base_display {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  font-family: "Raleway";
+  color: $base_color;
+  font-weight: bold;
+}
+
+//Styling of basic elements
+body {
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+footer {
+  background-color: $secondary_color;
+  width: 100%;
+  position: relative;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: $first_accent_color;
+  }
+  a {
+    color: $second_accent_color;
+  }
+  a:hover {
+    color: $first_accent_color;
+    text-decoration: none;
+  }
+
+  font-size: $base_font;
+}
+
+hr {
+  border: solid 2px $secondary_color;
+  width: 70%;
+  background-color: $secondary_color;
+  border-radius: 20%;
+}
+
+button {
+  margin: 10px;
+}
+
+//Styling of the navbar
+nav {
+  background-color: $secondary_color;
+}
+
+nav.navbar-light {
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($first_accent_color, 1);
+  }
+}
+
+nav.navbar-light {
+  a.nav-link,
+  a.navbar-brand {
+    color: $second_accent_color !important;
+  }
+
+  a.nav-link:hover,
+  a.navbar-brand:hover {
+    color: $first_accent_color !important;
+  }
+}
+
+//Styling of the stats circle
+.stats-circle {
+  @extend %base_display;
+  padding: 20px;
+
+  .circle {
+    --w: 150px;
+
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    place-content: center;
+    margin: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+  .circle:before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 0;
+    background: conic-gradient(
+      var(--c) calc(var(--p) * 1%),
+      $secondary_color 0
+    );
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(99% - var(--b)),
+      #000 calc(100% - var(--b))
+    );
+    mask: radial-gradient(
+      farthest-side,
+      #0000 calc(99% - var(--b)),
+      #000 calc(100% - var(--b))
+    );
+  }
+
+  p {
+    display: inline;
+    padding: 5px;
+  }
+
+  .stats-shower {
+    color: black;
+  }
+
+  .wins {
+    color: $second_accent_color;
+  }
+
+  .losses {
+    color: $secondary_color;
+  }
+}
+
+//Styling of the match table
+caption {
+  display: none;
+  text-align: center;
+  color: white;
+  height: 140px;
+}
+
+table {
+  border: $base_border;
+  border-radius: 12px;
+  background-color: $secondary_color;
+  margin: 10px;
+}
+
+tr,
+td {
+  text-align: center;
+  border: $base_border;
+  border-radius: 12px;
+  background-color: $secondary_color;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.match {
+  @extend %base_display;
+  position: relative;
+  padding: 20px;
+
+  table {
+    border-collapse: collapse;
+    transition: width 0.5s;
+    padding: 20px;
+    display: block;
+    box-shadow: 5px 5px 5px $second_accent_color;
+    box-shadow: -5px 5px 5px $second_accent_color;
+  }
+
+  .user {
+    color: $base_color;
+  }
+
+  .opponent {
+    color: $first_accent_color;
+    font-weight: bold;
+  }
+
+  #winner {
+    color: $second_accent_color;
+    background-color: $first_accent_color;
+    border-radius: 0;
+  }
+
+  .update {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .stats {
+    color: $base_color;
+
+    .info {
+      td {
+        color: white;
+      }
+    }
+  }
+}
+
+.nav-item.disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+nav.navbar-light {
+  a.nav-link.active {
+    color: $first_accent_color !important;
+  }
+}

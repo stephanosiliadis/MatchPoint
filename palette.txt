@@ -1,0 +1,4 @@
+base_color: #212121
+secondary_color: #4dd0e1
+first_accent_color: #ffc400
+second_accent_color: #ff5722

@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+
+{% block title %}
+    | Add Match
+{% endblock %}
+
+
+{% block content %}
+    <form method="post" action="{% url "core:add" %}">
+        {% csrf_token %}
+        <div class="form-group m-5">
+            <h3>Create a Match:</h3>
+            <input 
+            type="text" 
+            class="form-control m-1" 
+            placeholder="Opponent" 
+            name="opponent" 
+            />
+
+            <input 
+            type="number"
+            class="form-control m-1"
+            placeholder="Number of Sets"
+            name="num-sets"
+            min="1" 
+            />
+
+            <input 
+            type="submit"
+            value="Submit"
+            class="btn m-1"
+            />
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,4 @@
+Superuser:
+Username: admin
+Email: -
+Password: 1234
