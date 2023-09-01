@@ -20,7 +20,6 @@ class Player(models.Model):
             return f"{self.name}"
 
 
-
 class Match(models.Model):
     players = models.ManyToManyField(Player)
     number_of_sets = models.IntegerField()

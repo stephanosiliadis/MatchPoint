@@ -6,5 +6,5 @@ urlpatterns = [
     path("", index, name="index"),
     path("home/", home, name="home"),
     path("add/", add, name="add"),
-    path("set_details/<int:match_id>/", set_details, name="set_details"),    
+    path("set_details/<int:match_id>/", set_details, name="set_details"),
 ]

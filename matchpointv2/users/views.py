@@ -19,7 +19,6 @@ def login_view(request):
         else:
             show_modal = True
 
-
     return render(
         request,
         "users/login.html",
