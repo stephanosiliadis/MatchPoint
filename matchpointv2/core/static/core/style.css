@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
-.match, .stats-circle {
+
+.match,
+.stats-circle {
   display: flex;
   justify-content: center;
 }
@@ -86,8 +88,16 @@ nav.navbar-light a.navbar-brand:hover {
   border-radius: 50%;
   inset: 0;
   background: conic-gradient(var(--c) calc(var(--p) * 1%), #4dd0e1 0);
-  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--b)), #000 calc(100% - var(--b)));
-  mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--b)), #000 calc(100% - var(--b)));
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    rgba(0, 0, 0, 0) calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    rgba(0, 0, 0, 0) calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
 }
 .stats-circle p {
   display: inline;
@@ -171,4 +181,4 @@ td {
 
 nav.navbar-light a.nav-link.active {
   color: #ffc400 !important;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
