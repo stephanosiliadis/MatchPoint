@@ -69,3 +69,13 @@ def set_details(request, match_id):
             "match_id": match_id,
         },
     )
+
+
+def match_statistics(request, match_id):
+    match = Match.objects.get(id=match_id)
+
+    return render(
+        request,
+        "core/match_statistics.html",
+        {},
+    )
