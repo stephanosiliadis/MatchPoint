@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
 
 .match,
 .stats-circle {
@@ -7,7 +7,7 @@
 }
 
 * {
-  font-family: "Raleway";
+  font-family: "Aclonica", sans-serif;
   color: #212121;
   font-weight: bold;
 }

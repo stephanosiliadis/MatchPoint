@@ -4,7 +4,7 @@ $secondary_color: #4dd0e1;
 $first_accent_color: #ffc400;
 $second_accent_color: #ff5722;
 
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
 
 //Definition of font variables
 $base_font: 22px;
@@ -19,7 +19,7 @@ $base_border: 3px solid #212121;
 }
 
 * {
-  font-family: "Raleway";
+  font-family: "Aclonica", sans-serif;
   color: $base_color;
   font-weight: bold;
 }

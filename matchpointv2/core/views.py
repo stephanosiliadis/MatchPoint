@@ -94,6 +94,8 @@ def match_stats(request, match_id):
         user_stats.save()
         opponent_stats.save()
 
+        print(user_stats, opponent_stats)
+
     return render(
         request,
         "core/match_statistics.html",
