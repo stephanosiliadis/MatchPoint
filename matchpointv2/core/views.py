@@ -71,8 +71,11 @@ def set_details(request, match_id):
     )
 
 
-def match_statistics(request, match_id):
+def match_stats(request, match_id):
     match = Match.objects.get(id=match_id)
+
+    if request.method == "POST":
+        pass
 
     return render(
         request,

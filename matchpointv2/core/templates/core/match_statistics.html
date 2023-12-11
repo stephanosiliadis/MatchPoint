@@ -1,11 +1,21 @@
 {% extends "core/base.html" %}
 
+
 {% block title %}
     | Match Statistics
 {% endblock %}
 
+
 {% block content %}
-    <div>
-        <p>Match Statistics</p>
+    <div class="container">
+        <div class="row m-3">
+            <h1>Statistics</h1>
+        </div>
+
+        <div class="row-3">
+            <form method="post" action="{% url "core:match_stats" match_id=match_id %}" class="form-group">
+                {% csrf_token %}
+            </form>
+        </div>
     </div>
 {% endblock %}
