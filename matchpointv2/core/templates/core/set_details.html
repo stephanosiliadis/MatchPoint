@@ -22,26 +22,28 @@
 
                     <div class="col">
                         <input 
-                        class="form-control m-1" 
-                        type="text"
-                        placeholder="Your Games"
-                        name="user-games"
+                            class="form-control m-1" 
+                            type="text"
+                            placeholder="Your Games"
+                            name="user-games"
+                            required
                         />
                     </div>
 
                     <div class="col">
                         <input 
-                        class="form-control m-1" 
-                        placeholder="Opponent's Games"
-                        name="opponent-games"
+                            class="form-control m-1" 
+                            placeholder="Opponent's Games"
+                            name="opponent-games"
+                            required
                         />
                     </div>
                 {% endfor %}
                 
                 <input 
-                type="submit"
-                value="Submit"
-                class="btn m-3"
+                    type="submit"
+                    value="Submit"
+                    class="btn m-3"
                 />
             </form>
         </div>

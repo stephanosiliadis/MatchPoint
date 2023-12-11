@@ -8,13 +8,92 @@
 
 {% block content %}
     <div class="container">
-        <div class="row m-3">
-            <h1>Statistics</h1>
-        </div>
-
         <div class="row-3">
             <form method="post" action="{% url "core:match_stats" match_id=match_id %}" class="form-group">
                 {% csrf_token %}
+                <div class="row-3">
+                    <h1>Your Statistics</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Your Aces"
+                            name="user-aces"
+                            required
+                        />
+                    
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Your Winners"
+                            name="user-winners"
+                            required
+                        />
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Your Double Faults"
+                            name="user-double_faults"
+                            required
+                        />
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Your Unforced Errors"
+                            name="user-unf_errors"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div class="row-3">
+                    <h1>Opponent's Statistics</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Opponent's Aces"
+                            name="opponent-aces"
+                            required
+                        />
+                    
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Opponent's Winners"
+                            name="opponent-winners"
+                            required
+                        />
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Opponent's Double Faults"
+                            name="opponent-double_faults"
+                            required
+                        />
+                        <input
+                            class="form-control m-1"
+                            type="text"
+                            placeholder="Opponent's Unforced Errors"
+                            name="opponent-unf_errors"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div class="row-3">
+                    <input 
+                        type="submit"
+                        value="Submit"
+                        class="btn m-3"
+                    />
+                </div>
             </form>
         </div>
     </div>

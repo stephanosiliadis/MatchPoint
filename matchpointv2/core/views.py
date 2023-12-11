@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .models import Player, Match, Set
+from .models import Player, Match, Set, MatchStats
 
 
 # Create your views here.
@@ -58,7 +58,7 @@ def set_details(request, match_id):
             set = Set(match=match, player1_games=user_game, player2_games=opponent_game)
             set.save()
 
-        return redirect(reverse("core:home"))
+        return redirect(reverse("core:match_stats", args=[match.id]))
 
     return render(
         request,
@@ -73,12 +73,32 @@ def set_details(request, match_id):
 
 def match_stats(request, match_id):
     match = Match.objects.get(id=match_id)
+    user = Player.objects.get(user=request.user)
+    opponent = match.players.exclude(user=request.user).first()
 
     if request.method == "POST":
-        pass
+        user_data = {
+            k.replace("user-", ""): v
+            for k, v in request.POST.items()
+            if k.startswith("user-")
+        }
+        opponent_data = {
+            k.replace("opponent-", ""): v
+            for k, v in request.POST.items()
+            if k.startswith("opponent-")
+        }
+
+        user_stats = MatchStats(match=match, player=user, **user_data)
+        opponent_stats = MatchStats(match=match, player=opponent, **opponent_data)
+
+        user_stats.save()
+        opponent_stats.save()
 
     return render(
         request,
         "core/match_statistics.html",
-        {},
+        {
+            "active_nav": "add",
+            "match_id": match_id,
+        },
     )
