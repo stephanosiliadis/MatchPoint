@@ -25,28 +25,50 @@
                     <tbody>
                         {% for player in match.players.all %}
                             {% if player == match.players.first %}
-                                <tr class="player">
+                                <tr {% if player.is_winner %}id="winner"{% endif %} class="player">
                                     <td>{{ player }}</td>
                                     {% for set in match.set_set.all %}
-                                        {% if player == match.players.first %}
-                                            <td>{{ set.player1_games }}</td>
-                                        {% else %}
-                                            <td>{{ set.player2_games }}</td>
-                                        {% endif %}
+                                        <td {% if set.player1_games|to_int > set.player2_games|to_int %}id="winner"{% endif %}>{{ set.player1_games }}</td>
                                     {% endfor %}
                                 </tr>
                             {% else %}
-                                <tr class="opponent">
+                                <tr {% if player.is_winner %}id="winner"{% endif %} class="opponent">
                                     <td>{{ player }}</td>
                                     {% for set in match.set_set.all %}
-                                        {% if player == match.players.first %}
-                                            <td>{{ set.player1_games }}</td>
-                                        {% else %}
-                                            <td>{{ set.player2_games }}</td>
-                                        {% endif %}
+                                        <td {% if set.player2_games|to_int > set.player1_games|to_int %}id="winner"{% endif %}>{{ set.player2_games }}</td>
                                     {% endfor %}
                                 </tr>
                             {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-stats m-2">
+                <table class="myTable" id="table-2">
+                    <caption>
+                        MatchPoto_int Stats
+                    </caption>
+                    <thead>
+                        <div class="info">
+                            <tr class="hidden">
+                                <td>Aces</td>
+                                <td>Double Faults</td>
+                                <td>Winners</td>
+                                <td>Unforced Errors</td>
+                            </tr>
+                        </div>
+                    </thead>
+                    <tbody class="stats">
+                        {% for stats in match.matchstats_set.all %}
+                            <div class="info">
+                                <tr class="hidden">
+                                    <td>{{ stats.aces }}</td>
+                                    <td>{{ stats.double_faults }}</td>
+                                    <td>{{ stats.winners }}</td>
+                                    <td>{{ stats.unforced_errors }}</td>
+                                </tr>
+                            </div>
                         {% endfor %}
                     </tbody>
                 </table>

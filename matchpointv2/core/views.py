@@ -15,6 +15,25 @@ def home(request):
     # Filter matches and get all that contain request.user as a player
     matches = Match.objects.filter(players__user=request.user)
 
+    # Calculate total games won by each player
+    for match in matches:
+        players = list(match.players.all())
+        for i, player in enumerate(players):
+            total_games = 0
+            for set in match.set_set.all():
+                if player == match.players.first():
+                    total_games += int(set.player1_games)
+                else:
+                    total_games += int(set.player2_games)
+            player.total_games = total_games
+            # Determine the winner
+            other_player = players[1 - i]
+            if "total_games" in other_player.__dict__:
+                if player.total_games > other_player.total_games:
+                    player.is_winner = True
+                else:
+                    player.is_winner = False
+
     return render(
         request,
         "core/home.html",
@@ -95,6 +114,9 @@ def match_stats(request, match_id):
         opponent_stats.save()
 
         print(user_stats, opponent_stats)
+
+        # Redirect to home if form inputs are valid
+        return redirect(reverse("core:home"))
 
     return render(
         request,
