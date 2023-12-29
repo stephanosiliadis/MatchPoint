@@ -113,8 +113,6 @@ def match_stats(request, match_id):
         user_stats.save()
         opponent_stats.save()
 
-        print(user_stats, opponent_stats)
-
         # Redirect to home if form inputs are valid
         return redirect(reverse("core:home"))
 
